@@ -76,6 +76,7 @@ buttonBack.setOnClickListener {
 }
 ```
 Data transfer between Fragments:
+
 Send:
 ```kotlin
 buttonNext.setOnClickListener {
