@@ -1,7 +1,5 @@
 ## Navigations
 
-Navigation is a framework for navigating between 'destinations' within an Android application that provides a consistent API whether destinations are implemented as Fragments, Activities, or other components.
-
 ### Declaring Dependencies:
 Add the dependencies for the artifacts you need in the build.gradle file for your app or module.
 ```gradle
