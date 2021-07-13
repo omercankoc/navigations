@@ -73,16 +73,16 @@ buttonBack.setOnClickListener {
     Navigation.findNavController(it).navigate(action)
 }
 ```
-Data transfer between Fragments:
+### Data transfer between Fragments
 
-Send:
+Send
 ```kotlin
 buttonNext.setOnClickListener {
     val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment("androidDeveloper")
     Navigation.findNavController(it).navigate(action)
 }
 ```
-Get:
+Get
 ```kotlin
 arguments?.let {
     val username = SecondFragmentArgs.fromBundle(it).username
