@@ -1,14 +1,11 @@
 ## Navigations
 
-### Declaring Dependencies:
 Add the dependencies for the artifacts you need in the build.gradle file for your app or module.
 ```gradle
 def nav_version = "2.3.5"
 implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
 implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 ```
-
-### Safe Args:
 To add Safe Args to your project, include the following classpath in your top level build.gradle file.
 ```gradle
 buildscript {
@@ -62,7 +59,7 @@ Take a look at the project files:
 Example for transitioning from the FirstFragment to the SecondFragment:
 ```kotlin
 buttonNext.setOnClickListener {
-    val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment)
+    val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
     Navigation.findNavController(it).navigate(action)
 }
 ```
@@ -73,16 +70,14 @@ buttonBack.setOnClickListener {
     Navigation.findNavController(it).navigate(action)
 }
 ```
-### Data transfer between Fragments
-
-Send
+Send data Fragment to Fragment:
 ```kotlin
 buttonNext.setOnClickListener {
     val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment("androidDeveloper")
     Navigation.findNavController(it).navigate(action)
 }
 ```
-Get
+Get data Fragment to Fragment:
 ```kotlin
 arguments?.let {
     val username = SecondFragmentArgs.fromBundle(it).username
@@ -93,5 +88,3 @@ buttonBack.setOnClickListener {
     val action = SecondFragmentDirections.actionSecondFragmentToFirstFragment()
     Navigation.findNavController(it).navigate(action)
 }
-
-
