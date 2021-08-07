@@ -28,7 +28,7 @@ class FirstFragment : Fragment() {
 
         buttonNext = view.findViewById(R.id.buttonNext)
         buttonNext.setOnClickListener {
-            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment("androidDeveloper")
+            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment("Send data with Navigation to Second Fragment!")
             Navigation.findNavController(it).navigate(action)
         }
 

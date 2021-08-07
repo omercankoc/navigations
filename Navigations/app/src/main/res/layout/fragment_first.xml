@@ -12,9 +12,9 @@
         android:id="@+id/textViewFirst"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:textSize="36dp"
+        android:textSize="12dp"
         android:gravity="center"
-        android:text="First Fragment" />
+        android:text="First Fragment to Second Fragment" />
 
     <Button
         android:id="@+id/buttonNext"
