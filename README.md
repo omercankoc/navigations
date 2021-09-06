@@ -1,11 +1,7 @@
-## Navigations
+# Navigations
 
-Add the dependencies for the artifacts you need in the build.gradle file for your app or module.
-```gradle
-def nav_version = "2.3.5"
-implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
-implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
-```
+### Dependencies:
+
 To add Safe Args to your project, include the following classpath in your top level build.gradle file.
 ```gradle
 buildscript {
@@ -18,7 +14,15 @@ buildscript {
     }
 }
 ```
-To generate Kotlin code suitable for Kotlin modules add.
+
+Add the dependencies for the artifacts you need in the build.gradle file for your app or module.
+```gradle
+def nav_version = "2.3.5"
+implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+```
+
+Add plugin,
 ```gradle
 apply plugin: "androidx.navigation.safeargs.kotlin"
 ``` 
@@ -28,8 +32,14 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 ```
-To create navigation:
+
+### To Create Navigation:
+
 res -> New -> Android Resource File -> Resource Type : Navigation
+
+Fragments must then be added and their graphics adjusted.
+
+Navigation must be assigned via NavHostFragment within the related activity.
 
 Take a look at the project files:
 <ul>
@@ -56,28 +66,31 @@ Take a look at the project files:
   </li>
 </ul>
 
-Example for transitioning from the FirstFragment to the SecondFragment:
+### Example for transitioning from the FirstFragment to the SecondFragment:
 ```kotlin
 buttonNext.setOnClickListener {
     val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
     Navigation.findNavController(it).navigate(action)
 }
 ```
-Example for transitioning from the SecondFragment to the FirstFragment:
+
+### Example for transitioning from the SecondFragment to the FirstFragment:
 ```kotlin
 buttonBack.setOnClickListener {
     val action = SecondFragmentDirections.actionSecondFragmentToFirstFragment()
     Navigation.findNavController(it).navigate(action)
 }
 ```
-Send data Fragment to Fragment:
+
+### Send data Fragment to Fragment:
 ```kotlin
 buttonNext.setOnClickListener {
     val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment("androidDeveloper")
     Navigation.findNavController(it).navigate(action)
 }
 ```
-Get data Fragment to Fragment:
+
+### Get data Fragment to Fragment:
 ```kotlin
 arguments?.let {
     val username = SecondFragmentArgs.fromBundle(it).username
@@ -88,3 +101,4 @@ buttonBack.setOnClickListener {
     val action = SecondFragmentDirections.actionSecondFragmentToFirstFragment()
     Navigation.findNavController(it).navigate(action)
 }
+```
